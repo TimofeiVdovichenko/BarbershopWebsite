@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "masters",
+  "info": {
+    "singularName": "master",
+    "pluralName": "masters",
+    "displayName": "Мастер",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "specialty": {
+      "type": "string"
+    },
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "email": {
+      "type": "email"
+    },
+    "password": {
+      "type": "password"
+    },
+    "uslugas": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::usluga.usluga",
+      "mappedBy": "masters"
+    },
+    "raspisanie": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::raspisanie.raspisanie",
+      "inversedBy": "masters"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

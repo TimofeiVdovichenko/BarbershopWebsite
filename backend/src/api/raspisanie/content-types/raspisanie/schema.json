@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "raspisanies",
+  "info": {
+    "singularName": "raspisanie",
+    "pluralName": "raspisanies",
+    "displayName": "Расписание"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "date": {
+      "type": "datetime"
+    },
+    "usluga": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::usluga.usluga",
+      "inversedBy": "raspisanies"
+    },
+    "masters": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::master.master",
+      "mappedBy": "raspisanie"
+    },
+    "klient": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::klient.klient",
+      "inversedBy": "raspisanies"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "klients",
+  "info": {
+    "singularName": "klient",
+    "pluralName": "klients",
+    "displayName": "Клиент"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "password": {
+      "type": "password"
+    },
+    "raspisanies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::raspisanie.raspisanie",
+      "mappedBy": "klient"
+    }
+  }
+}

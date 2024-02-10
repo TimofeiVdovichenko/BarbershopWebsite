@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "uslugas",
+  "info": {
+    "singularName": "usluga",
+    "pluralName": "uslugas",
+    "displayName": "Услуга",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "price": {
+      "type": "integer"
+    },
+    "masters": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::master.master",
+      "inversedBy": "uslugas"
+    },
+    "raspisanies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::raspisanie.raspisanie",
+      "mappedBy": "usluga"
+    },
+    "kategoriya": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::kategoriya.kategoriya",
+      "inversedBy": "uslugas"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}
