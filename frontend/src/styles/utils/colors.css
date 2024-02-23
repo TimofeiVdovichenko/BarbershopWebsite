@@ -1,0 +1,35 @@
+:root {
+  --bg-dark: #1B1B1E;
+  --bg-blue: #4516FF;
+  --bg-gray: #F4F4F4;
+  --bg-white: #FFFFFF;
+
+  --t-dark: #1B1B1E;
+  --t-gray: #B3B3B4;
+  --t-dark70: rgba(27, 27, 30, 0.7);
+  --t-dark15: rgba(27, 27, 30, 0.15);
+  --t-dark60: rgba(29, 29, 34, 0.6);
+  --t-dark5: rgba(29, 29, 34, 0.05);
+
+  --t-white: #fff;
+  --t-white80: rgba(255, 255, 255, 0.8);
+  --t-white70: rgba(255, 255, 255, 0.7);
+  --t-white60: rgba(255, 255, 255, 0.6);
+  --t-white40: rgba(255, 255, 255, 0.4);
+  --t-white30: rgba(255, 255, 255, 0.3);
+  --t-white15: rgba(255, 255, 255, 0.16);
+  
+  --c-accent-blue: #4516FF;
+  --c-accent-blue2: #3D12E9;
+  --c-accent-blue3: #3810D9;
+  --c-accent-blue4: #2100A3;
+  --c-accent-blue5: #896BFF;
+  --c-accent-blue6: #A892FF;
+
+  --c-hover1: rgba(69, 22, 255, 0.1);
+  --c-hover2: rgba(69, 22, 255, 0.16);
+  --c-hover3: rgba(69, 22, 255, 0.24);
+
+
+  --c-accent-blue-hover: #A892FF;
+}

@@ -1,0 +1,19 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+}
+
+.header_wrapper {
+	background-color: var(--bg-dark);
+	padding: 17px;
+}
+
+.logo {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+}
+
+.name {
+	color: var(--t-white);
+}

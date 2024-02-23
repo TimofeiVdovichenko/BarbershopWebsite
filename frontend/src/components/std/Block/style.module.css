@@ -1,0 +1,169 @@
+.block {
+  scroll-margin-top: 40px;
+}
+
+.first {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.default {}
+
+.light {
+  background-color: white;
+}
+
+.dark {
+  background-color: var(--bg-dark);
+  color: var(--t-white);
+}
+
+.dark p {
+  color: var(--c-gray);
+}
+
+.gray {
+  background-color: var(--bg-gray);
+}
+
+.top {
+  padding-top: 64px;
+}
+
+.bottom {
+  padding-top: 64px;
+}
+
+.both {
+  padding: 64px 0;
+}
+
+.both--xl {
+  padding: 200px 0;
+}
+
+@media (min-width: 992px) {
+  .top {
+    padding-top: 72px;
+  }
+  
+  .bottom {
+    padding-top: 72px;
+  }
+  
+  .both {
+    padding: 72px 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .top {
+    padding-top: 80px;
+  }
+  
+  .bottom {
+    padding-top: 80px;
+  }
+  
+  .both {
+    padding: 80px 0;
+  }
+}
+
+@media (min-width: 1920px) {
+  .top {
+    padding-top: 128px;
+  }
+  
+  .bottom {
+    padding-top: 128px;
+  }
+  
+  .both {
+    padding: 128px 0;
+  }
+}
+
+.gr_top {
+  background-image: url("./gradients/gr_middle.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  background-position-x: 50%;
+  background-position-y: 55%;
+  background-origin: border-box;
+}
+
+@media (min-width: 992px) {
+  .gr_top {
+    background-position-y: 100%;
+  }
+}
+
+.gr_left {
+  background-image: url("./gradients/gr_left.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  margin-bottom: 32px;
+}
+
+.info_first {
+  width: 100%;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.info h2 {
+  width: 100%;
+}
+
+.description {
+  width: 100%;
+}
+
+.description_first {
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media (min-width: 992px) {
+  .info {
+    flex-direction: row;
+  }
+
+  .buttons {
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .description {
+    margin-top: 24px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .info {
+    margin-bottom: 40px;
+  }
+
+  .description {
+    margin-top: 32px;
+  }
+  
+  .info_first {
+    margin-bottom: initial;
+  }
+}
