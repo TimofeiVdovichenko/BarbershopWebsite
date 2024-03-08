@@ -1,5 +1,25 @@
+.cards {
+	background: var(--bg-persik);
+	padding-top: 160px;
+	padding-bottom: 80px;
+}
+
 .card_wrapper {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 150px;
+}
+
+.title, .subtitle {
+	text-align: center;
+}
+
+.subtitle {
+	color: #494949;
+	font-weight: 300;
+}
+
+.title {
+	margin-top: 15px;
+	margin-bottom: 140px;
 }

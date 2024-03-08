@@ -1,8 +1,9 @@
 import Container from "@/components/std/Container"
 import MasterCard from "./MasterCard"
 import styles from './masters.module.css'
+import get_master_data from "./get_master_data";
 
-export default function Masters() {
+export default async function Masters() {
 
 	const master_arr = [{
 		name: 'asdasd',
@@ -21,14 +22,21 @@ export default function Masters() {
 		img: 'asdasd'
 	}]
 
+	const master_data = await get_master_data();
+	console.log(master_data)
+
 	return (
-		<Container>
-			<h2>masters</h2>
-			<div className={styles.card_wrapper}>
-				{master_arr.map((master, index) => {
-					return <MasterCard key={index} {...master} />
-				})}
-			</div>
-		</Container>
+		<div className={styles.cards}>
+			<Container>
+				<h3 className={styles.subtitle}>Познакомьтесь с нашей командой профессионалов</h3>
+				<h2 className={styles.title}>Наши парикмахеры и стилисты</h2>
+				<div className={styles.card_wrapper}>
+					{master_data.map((master: any) => {
+						return <MasterCard key={master.id} {...master} />
+					})}
+				</div>
+			</Container>
+		</div>
+		
 	)
 }

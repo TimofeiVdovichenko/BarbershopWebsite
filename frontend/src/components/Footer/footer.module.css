@@ -1,0 +1,30 @@
+.footer {
+	display: flex;
+	justify-content: space-between;
+}
+
+.footer_wrapper {
+	background-color: var(--bg-dark);
+	padding: 100px;
+}
+
+.logo {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+}
+
+.name {
+	color: var(--t-white);
+}
+
+.nav {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.addres, .phone {
+	color: var(--t-white);
+	padding-bottom: 10px;
+}

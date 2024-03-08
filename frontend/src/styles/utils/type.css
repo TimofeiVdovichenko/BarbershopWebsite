@@ -8,48 +8,80 @@
 	Font Family 
 */
 
-/* @font-face {
-	font-family: "Suisse Int'l";
-	src: local("Suisse Int'l"), url('../../assets/fonts/Suisse\ Int\'l.woff2');
-} */
+@font-face {
+	font-family: "Montserrat";
+	font-style: normal;
+	font-weight: 400;
+	src: local("Montserrat"), url('../../assets/fonts/Montserrat-Regular.ttf');
+}
+
+@font-face {
+	font-family: "Montserrat";
+	font-style: normal;
+	font-weight: 500;
+	src: local("Montserrat"), url('../../assets/fonts/Montserrat-Medium.ttf');
+}
+
+@font-face {
+	font-family: "Montserrat";
+	font-style: normal;
+	font-weight: 600;
+	src: local("Montserrat"), url('../../assets/fonts/Montserrat-SemiBold.ttf');
+}
+
+@font-face {
+	font-family: "Montserrat";
+	font-style: normal;
+	font-weight: 800;
+	src: local("Montserrat"), url('../../assets/fonts/Montserrat-Bold.ttf');
+}
 
 /* 
 	Headlines
 */
 
+
+
 h1 {
-	font-size: 36px;
-	font-weight: 400;
-	line-height: 43px;
-	letter-spacing: -0.025em;
+	font-size: 188px;
+	font-weight: 600;
+	/* line-height: 43px;
+	letter-spacing: -0.025em; */
 }
 
 h2 {
-	font-size: 26px;
-	font-weight: 400;
-	line-height: 33px;
-	letter-spacing: -0.015em;
+	font-size: 35px;
+	font-weight: 600;
+	/* line-height: 33px;
+	letter-spacing: -0.015em; */
 }
 
 h3 {
-	font-size: 20px;
-	font-weight: 400;
-	line-height: 26px;
-	letter-spacing: -0.015em;
+	font-size: 30px;
+	font-weight: 600;
+	/* line-height: 26px;
+	letter-spacing: -0.015em; */
 }
 
 h4 {
-	font-size: 18px;
-	font-weight: 400;
-	line-height: 23px;
-	letter-spacing: -0.015em;
+	font-size: 25px;
+	font-weight: 500;
+	/* line-height: 23px;
+	letter-spacing: -0.015em; */
 }
 
 h5 {
 	font-size: 20px;
 	font-weight: 400;
-	line-height: 26px;
-	letter-spacing: 0em;
+	/* line-height: 26px;
+	letter-spacing: 0em; */
+}
+
+h6 {
+	font-size: 72px;
+	font-weight: 500;
+	/* line-height: 26px;
+	letter-spacing: 0em; */
 }
 
 button {
@@ -60,41 +92,8 @@ button {
 }
 
 p, span {
-	font-size: 16px;
+	font-size: 15px;
 	font-weight: 400;
-	line-height: 24px;
-	letter-spacing: 0em;
-}
-
-@media (min-width: 1200px) {
-	h1 {
-		font-size: 66px;
-		font-weight: 400;
-		line-height: 66px;
-		letter-spacing: -0.03em;
-	}
-
-	h2 {
-		font-size: 42px;
-		font-weight: 400;
-		line-height: 48px;
-		letter-spacing: -0.025em;
-	}
-
-	h3 {
-		font-size: 36px;
-		font-weight: 400;
-		line-height: 43px;
-		letter-spacing: -0.025em;
-	}
-
-	h4 {
-		font-size: 26px;
-		font-weight: 400;
-		line-height: 33px;
-		letter-spacing: -0.015em;
-		text-align: left;
-	}
 }
 
 ul {

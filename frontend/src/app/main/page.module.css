@@ -1,0 +1,169 @@
+.main {
+	background-image: url(./bg_main.png);
+	height: 1000px;
+}
+
+.name {
+	display: flex;
+	justify-content: space-between;
+}
+
+.title {
+	color: var(--t-white);
+	margin-top: 385px;
+}
+
+.subtitle {
+	transform: rotate(-90deg);
+	width: 20px;
+	height: 30px;
+	color: var(--t-white);
+	margin-top: 544px;
+}
+
+.about {
+	background: var(--bg-persik);
+}
+
+.description {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-top: 180px;
+	padding-bottom: 228px;
+}
+
+.details {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.details_title {
+	margin-top: 20px;
+}
+
+.details_description {
+	margin-top: 44px;
+	width: 1021px;
+}
+
+.record {
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 15px 20px;
+	margin-top: 43px;
+}
+
+.schedule {
+	background-image: url(./bg_day.png);
+	min-height: 465px;
+
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.days {
+	display: flex;
+	justify-content: space-between;
+	padding-top: 155px;
+}
+
+.circle, .circle_off {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 155px;
+	height: 155px;
+	border-radius: 77.5px;
+}
+
+.circle {
+	background: #5B7F68;
+}
+
+.circle_off {
+	background: #343434;
+}
+
+.day {
+	padding-bottom: 5px;
+	color: var(--t-white);
+}
+
+.time {
+	color: var(--t-white);
+}
+
+.service_all {
+	display: flex;
+	justify-content: space-between;
+}
+
+.service {
+	background: var(--bg-persik);
+	padding-top: 180px;
+	padding-bottom: 180px;
+}
+
+.hairdressing {
+	margin-top: 36px;
+}
+
+.shaving, .beard, .mustache {
+	margin-top: 20px;
+}
+
+.other {
+	margin-top: 10px;
+}
+
+.record_reception {
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 10px 15px;
+	margin-top: 65px;
+}
+
+.paralax {
+	background-image: url(./salon.png);
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 465px;
+}
+
+.price {
+	background: var(--bg-persik);
+	padding-top: 100px;
+	padding-bottom: 260px;
+}
+
+.look_price {
+	text-align: center;
+}
+
+.service_top, .service_bottom {
+	display: flex;
+	justify-content: space-between;
+}
+
+.breard_trim, .basic_service {
+	margin-top: 50px;
+}
+
+.additional_service, .mustache_trim {
+	margin-top: 40px;
+}
+
+.name_price {
+	display: flex;
+	width: 630px;
+	justify-content: space-between;
+	margin-top: 20px;
+}

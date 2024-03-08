@@ -6,6 +6,8 @@
 .header_wrapper {
 	background-color: var(--bg-dark);
 	padding: 17px;
+	width: 100%;
+	position: fixed;
 }
 
 .logo {
@@ -16,4 +18,14 @@
 
 .name {
 	color: var(--t-white);
+}
+
+.nav {
+	display: flex;
+	align-items: center;
+}
+
+.masters, .service, .personal {
+	color: var(--t-white);
+	margin-left: 25px;
 }

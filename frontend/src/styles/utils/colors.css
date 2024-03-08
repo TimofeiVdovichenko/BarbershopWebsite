@@ -1,23 +1,12 @@
 :root {
-  --bg-dark: #1B1B1E;
-  --bg-blue: #4516FF;
-  --bg-gray: #F4F4F4;
+  --bg-dark: #000000;
+  --bg-persik: #FAEEDD;
   --bg-white: #FFFFFF;
+  --bg-green: #449214;
 
-  --t-dark: #1B1B1E;
-  --t-gray: #B3B3B4;
-  --t-dark70: rgba(27, 27, 30, 0.7);
-  --t-dark15: rgba(27, 27, 30, 0.15);
-  --t-dark60: rgba(29, 29, 34, 0.6);
-  --t-dark5: rgba(29, 29, 34, 0.05);
+  --t-dark: #000000;
 
-  --t-white: #fff;
-  --t-white80: rgba(255, 255, 255, 0.8);
-  --t-white70: rgba(255, 255, 255, 0.7);
-  --t-white60: rgba(255, 255, 255, 0.6);
-  --t-white40: rgba(255, 255, 255, 0.4);
-  --t-white30: rgba(255, 255, 255, 0.3);
-  --t-white15: rgba(255, 255, 255, 0.16);
+  --t-white: #FFFFFF;
   
   --c-accent-blue: #4516FF;
   --c-accent-blue2: #3D12E9;
