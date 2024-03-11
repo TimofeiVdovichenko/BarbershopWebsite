@@ -8,6 +8,7 @@
 	padding: 17px;
 	width: 100%;
 	position: fixed;
+	z-index: 5;
 }
 
 .logo {
@@ -23,6 +24,10 @@
 .nav {
 	display: flex;
 	align-items: center;
+}
+
+.nav a {
+	cursor: pointer;
 }
 
 .masters, .service, .personal {

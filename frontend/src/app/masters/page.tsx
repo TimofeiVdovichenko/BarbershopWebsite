@@ -5,25 +5,7 @@ import get_master_data from "./get_master_data";
 
 export default async function Masters() {
 
-	const master_arr = [{
-		name: 'asdasd',
-		description: 'asdasd',
-		position: 'asdasda',
-		img: 'asdasd'
-	}, {
-		name: 'pidoras',
-		description: 'asdasd',
-		position: 'asdasda',
-		img: 'asdasd'
-	}, {
-		name: 'pidoras2',
-		description: 'asdasd',
-		position: 'asdasda',
-		img: 'asdasd'
-	}]
-
 	const master_data = await get_master_data();
-	console.log(master_data)
 
 	return (
 		<div className={styles.cards}>

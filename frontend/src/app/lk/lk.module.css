@@ -2,55 +2,12 @@
 	background: #EAEAEA;
 	padding-top: 130px;
 	padding-bottom: 130px;
+	flex: 1;
 }
 
 .info {
 	display: flex;
 	justify-content: space-between;
-}
-
-.card, .card_info, .card_reception {
-	background: var(--bg-white);
-	border-radius: 10px;
-	padding: 30px;
-}
-
-.card_info {
-	height: 370px;
-}
-
-.card, .card_reception {
-	margin-bottom: 20px;
-	width: 880px;
-}
-
-.client_info {
-	margin-top: 10px;
-}
-
-.client_title {
-	margin-top: 20px;
-	margin-bottom: 10px;
-}
-
-.reception, .card_active, .card_history {
-	display: flex;
-	justify-content: space-between;
-	margin-top: 36px;
-}
-
-.reception_input {
-	display: flex;
-	justify-content: space-between;
-	margin-top: 17px;
-	margin-bottom: 25px;
-}
-
-.reception_btn {
-	padding: 11px 15px;
-	background: #449214;
-	color: var(--t-white);
-	border-radius: 10px;
 }
 
 .select {

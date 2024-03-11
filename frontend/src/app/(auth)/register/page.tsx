@@ -1,17 +1,16 @@
 "use client"
 import Container from "@/components/std/Container";
 import styles from "./register.module.css"
-import { useState } from "react";
-import axios from "axios";
+import { ChangeEventHandler, useEffect, useState } from "react";
+import axios, { AxiosError } from "axios";
 import jwt from 'jsonwebtoken';
-import { CookiesProvider, useCookies } from 'next-client-cookies';
 import { redirect, useRouter } from "next/navigation";
+import { hasCookie, setCookie } from "cookies-next";
 
 export default function Register() {
-	const cookies = useCookies();
 	const router = useRouter();
 
-	if (cookies.get('jwt')) {
+	if (hasCookie('jwt')) {
 		router.push('/lk')
 	}
 
@@ -24,7 +23,7 @@ export default function Register() {
 
 	const [errors, set_errors] = useState<Array<string>>([])
 
-	const handleChange = (e: HTMLInputElement) => {
+	const handleChange: ChangeEventHandler<HTMLInputElement> = (e: any) => {
 		//@ts-ignore
 		const {name, value} = e.target;
 
@@ -63,9 +62,18 @@ export default function Register() {
 			set_errors(prev => errors)
 		} else {
 			set_errors(prev => [])
-			axios.post('/api/register', JSON.stringify(form_data)).then(res => {
-				cookies.set('jwt', res.data)
+			axios.post('/api/register', JSON.stringify(form_data))
+			.then(res => {
+				setCookie('jwt', res.data)
 				router.push('/lk')
+			}).catch((err: AxiosError) => {
+				if (err.response) {
+					const status = err.response.status;
+
+					if (status === 400) {
+						set_errors(['email']);
+					}
+				}
 			})
 		}
 	}
@@ -100,6 +108,15 @@ export default function Register() {
 
 							<button className={styles.reg_btn} onClick={send} type="button">Создать</button>
 						</form>
+
+						<div className={styles.support}>
+							<a href="http://localhost:3000/login">
+								<h5 className={styles.reg}>Есть учетная записи?</h5>
+							</a>
+							<a href="http://localhost:3000/login">
+								<h5 className={styles.reg}>Войти</h5>
+							</a>
+						</div>
 					</div>
 				</div>
 			</Container>

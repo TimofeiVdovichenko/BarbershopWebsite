@@ -29,20 +29,17 @@
     "email": {
       "type": "email"
     },
-    "password": {
-      "type": "password"
-    },
     "uslugas": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::usluga.usluga",
       "mappedBy": "masters"
     },
-    "raspisanie": {
+    "raspisanies": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "oneToMany",
       "target": "api::raspisanie.raspisanie",
-      "inversedBy": "masters"
+      "mappedBy": "master"
     },
     "description": {
       "type": "text"

@@ -4,15 +4,16 @@
   "info": {
     "singularName": "raspisanie",
     "pluralName": "raspisanies",
-    "displayName": "Расписание"
+    "displayName": "Расписание",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
     "date": {
-      "type": "datetime"
+      "type": "date"
     },
     "usluga": {
       "type": "relation",
@@ -20,16 +21,34 @@
       "target": "api::usluga.usluga",
       "inversedBy": "raspisanies"
     },
-    "masters": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::master.master",
-      "mappedBy": "raspisanie"
-    },
     "klient": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::klient.klient",
+      "inversedBy": "raspisanies"
+    },
+    "time": {
+      "type": "enumeration",
+      "enum": [
+        "t9:00",
+        "t10:00",
+        "t11:00",
+        "t12:00",
+        "t13:00",
+        "t14:00",
+        "t15:00",
+        "t16:00",
+        "t17:00",
+        "t18:00",
+        "t19:00",
+        "t20:00",
+        "t21:00"
+      ]
+    },
+    "master": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::master.master",
       "inversedBy": "raspisanies"
     }
   }

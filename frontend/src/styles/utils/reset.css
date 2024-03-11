@@ -15,6 +15,9 @@ body {
 	font-family: "Montserrat", sans-serif;
     color: var(--t-dark);
     scroll-behavior: smooth;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 html {

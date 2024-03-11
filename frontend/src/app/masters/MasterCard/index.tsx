@@ -12,8 +12,6 @@ type props = {
 export default function MasterCard(props: props) {
 	const image_path = `http://127.0.0.1:1337${props.photo.data.attributes.url}`;
 
-	console.log(image_path)
-
 	return (
 			<div className={styles.cards}>
 				<Card style={"gray"}>

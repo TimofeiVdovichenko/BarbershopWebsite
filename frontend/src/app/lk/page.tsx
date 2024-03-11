@@ -1,72 +1,53 @@
-"use client"
-import { useCookies } from "next-client-cookies";
 import styles from "./lk.module.css"
 import Container from "@/components/std/Container";
-import { useRouter } from "next/navigation";
+import { cookies } from 'next/headers'
+import Info from "./Info";
+import { redirect } from "next/navigation";
+import Reception from "./Reception";
+import axios from "axios";
+import History from "./History";
+import user from "./user";
 
-export default function Home() {
+type user_data = {
+	id: number,
+	attributes: user
+}
 
-	const cookies = useCookies();
-	const router = useRouter();
+export default async function Home() {
 
-	if (!cookies.get('jwt')) {
-		router.push('/login');
+	const cookieStore = cookies()
+  const jwt = cookieStore.get('jwt');
+
+	if (!jwt) {
+		redirect('/login')
 	}
 
-	console.log(cookies.get('jwt'));
+	const user: user_data = (await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/klients?populate=deep&filters[email][$eq]=${JSON.parse(jwt.value).email}`, {
+		headers: {
+			"Authorization": "Bearer " + process.env.NEXT_PUBLIC_API_KEY,
+			"Content-Type": "application/json"
+		}
+	})).data.data[0]
+
+	const uslugas = (await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/uslugas?populate=deep`, {
+		headers: {
+			"Authorization": "Bearer " + process.env.NEXT_PUBLIC_API_KEY,
+			"Content-Type": "application/json"
+		}
+	})).data.data
+
 	return (
 		<div className={styles.profile}>
 			<Container>
 				<div className={styles.info}>
-					<div className={styles.card_info}>
-						<h3>Мой профиль</h3>
-						<div className={styles.client_info}>
-							<h4 className={styles.client_title}>Мое имя</h4>
-							<h5>Заполнится</h5>
-							<h4 className={styles.client_title}>Номер телефона</h4>
-							<h5>Заполнится</h5>
-							<h4 className={styles.client_title}>Почта</h4>
-							<h5>Заполнится</h5>
-						</div>
-					</div>
+					
+					<Info user={user.attributes}/>
 
 					<div className={styles.fun}>
-						<div className={styles.card_reception}>
-							<h3>Записаться на прием</h3>
-							<div className={styles.reception}>
-								<h5>Услуга</h5>
-								<h5>Мастер</h5>
-								<h5>Время</h5>
-							</div>
-							<form action="">
-								<div className={styles.reception_input}>
-									<input type="text" name="" id="" />
-									
-									<input type="text" />
-									<input type="text" />
-								</div>
-								<button className={styles.reception_btn}>Записаться</button>
-							</form>
-							
-						</div>
+						
+						<Reception user_id={user.id} uslugas={uslugas}/>
 
-						<div className={styles.card}>
-							<h3>Записаться на прием</h3>
-							<div className={styles.card_active}>
-								<h5>Дата</h5>
-								<h5>Услуга</h5>
-								<h5>Цена</h5>
-							</div>
-						</div>
-
-						<div className={styles.card}>
-							<h3>История</h3>
-							<div className={styles.card_history}>
-								<h5>Дата</h5>
-								<h5>Услуга</h5>
-								<h5>Цена</h5>
-							</div>
-						</div>
+						<History user={user.attributes}/>
 					</div>
 				</div>
 				

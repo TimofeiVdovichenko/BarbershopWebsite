@@ -781,48 +781,13 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiKategoriyaKategoriya extends Schema.CollectionType {
-  collectionName: 'kategoriyas';
-  info: {
-    singularName: 'kategoriya';
-    pluralName: 'kategoriyas';
-    displayName: '\u041A\u0430\u0442\u0435\u0433\u043E\u0440\u0438\u044F';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String;
-    uslugas: Attribute.Relation<
-      'api::kategoriya.kategoriya',
-      'oneToMany',
-      'api::usluga.usluga'
-    >;
-    img: Attribute.Media;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::kategoriya.kategoriya',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::kategoriya.kategoriya',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiKlientKlient extends Schema.CollectionType {
   collectionName: 'klients';
   info: {
     singularName: 'klient';
     pluralName: 'klients';
     displayName: '\u041A\u043B\u0438\u0435\u043D\u0442';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -831,12 +796,12 @@ export interface ApiKlientKlient extends Schema.CollectionType {
     name: Attribute.String;
     email: Attribute.Email;
     phone: Attribute.String;
-    password: Attribute.Password;
     raspisanies: Attribute.Relation<
       'api::klient.klient',
       'oneToMany',
       'api::raspisanie.raspisanie'
     >;
+    password: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -904,15 +869,14 @@ export interface ApiMasterMaster extends Schema.CollectionType {
     specialty: Attribute.String;
     photo: Attribute.Media;
     email: Attribute.Email;
-    password: Attribute.Password;
     uslugas: Attribute.Relation<
       'api::master.master',
       'manyToMany',
       'api::usluga.usluga'
     >;
-    raspisanie: Attribute.Relation<
+    raspisanies: Attribute.Relation<
       'api::master.master',
-      'manyToOne',
+      'oneToMany',
       'api::raspisanie.raspisanie'
     >;
     description: Attribute.Text;
@@ -939,30 +903,47 @@ export interface ApiRaspisanieRaspisanie extends Schema.CollectionType {
     singularName: 'raspisanie';
     pluralName: 'raspisanies';
     displayName: '\u0420\u0430\u0441\u043F\u0438\u0441\u0430\u043D\u0438\u0435';
+    description: '';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
-    date: Attribute.DateTime;
+    date: Attribute.Date;
     usluga: Attribute.Relation<
       'api::raspisanie.raspisanie',
       'manyToOne',
       'api::usluga.usluga'
-    >;
-    masters: Attribute.Relation<
-      'api::raspisanie.raspisanie',
-      'oneToMany',
-      'api::master.master'
     >;
     klient: Attribute.Relation<
       'api::raspisanie.raspisanie',
       'manyToOne',
       'api::klient.klient'
     >;
+    time: Attribute.Enumeration<
+      [
+        't9:00',
+        't10:00',
+        't11:00',
+        't12:00',
+        't13:00',
+        't14:00',
+        't15:00',
+        't16:00',
+        't17:00',
+        't18:00',
+        't19:00',
+        't20:00',
+        't21:00'
+      ]
+    >;
+    master: Attribute.Relation<
+      'api::raspisanie.raspisanie',
+      'manyToOne',
+      'api::master.master'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'api::raspisanie.raspisanie',
       'oneToOne',
@@ -991,7 +972,6 @@ export interface ApiUslugaUsluga extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String;
-    img: Attribute.Media;
     price: Attribute.Integer;
     masters: Attribute.Relation<
       'api::usluga.usluga',
@@ -1003,12 +983,6 @@ export interface ApiUslugaUsluga extends Schema.CollectionType {
       'oneToMany',
       'api::raspisanie.raspisanie'
     >;
-    kategoriya: Attribute.Relation<
-      'api::usluga.usluga',
-      'manyToOne',
-      'api::kategoriya.kategoriya'
-    >;
-    description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1045,7 +1019,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::kategoriya.kategoriya': ApiKategoriyaKategoriya;
       'api::klient.klient': ApiKlientKlient;
       'api::kompaniya.kompaniya': ApiKompaniyaKompaniya;
       'api::master.master': ApiMasterMaster;

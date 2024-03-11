@@ -53,3 +53,13 @@
 .error {
 	border: 1px solid red;
 }
+
+.support {
+	margin-top: 140px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.reg {
+	font-size: 15px;
+}

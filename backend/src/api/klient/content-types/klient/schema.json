@@ -4,7 +4,8 @@
   "info": {
     "singularName": "klient",
     "pluralName": "klients",
-    "displayName": "Клиент"
+    "displayName": "Клиент",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -20,14 +21,14 @@
     "phone": {
       "type": "string"
     },
-    "password": {
-      "type": "password"
-    },
     "raspisanies": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::raspisanie.raspisanie",
       "mappedBy": "klient"
+    },
+    "password": {
+      "type": "text"
     }
   }
 }

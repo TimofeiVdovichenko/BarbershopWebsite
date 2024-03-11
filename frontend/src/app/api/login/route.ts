@@ -11,18 +11,6 @@ export async function POST (
   ) {
   try {
     const form_data = await req.json();
-    // const form_data = {
-    //   ...req.body
-    // }
-    const data_jwt = jwt.sign(form_data.password, String(process.env.NEXT_PUBLIC_API_SECRET_KEY));
-    
-    const send_data = {
-      data: {
-        ...form_data,
-      password: data_jwt,
-      raspisanies: []
-      }
-    }
 
     const find = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/klients?filters[email][$eq]=${form_data.email}`, {
       headers: {
@@ -33,18 +21,18 @@ export async function POST (
 
     const users = find.data.data;
 
-    if ((users.length > 0)) {
-      return NextResponse.json('exist', {status: 400});
+    if (!(users.length > 0)) {
+      return NextResponse.json('not_found', {status: 404});
     }
 
-    const create = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/klients`, JSON.stringify(send_data), {
-      headers: {
-        "Authorization": "Bearer " + process.env.NEXT_PUBLIC_API_KEY,
-        "Content-Type": "application/json"
-      }
-    })
+    const data_jwt = jwt.sign(form_data.password, String(process.env.NEXT_PUBLIC_API_SECRET_KEY));
 
-    return NextResponse.json(form_data, {status: 200});
+    //@ts-ignore
+    if (data_jwt !== users[0].attributes.password) {
+      return NextResponse.json('wrong_password', {status: 301});
+    }
+
+    return NextResponse.json(users[0].attributes, {status: 200});
   } catch (error) {
     console.error(error);
     NextResponse.json('error', {status: 500});

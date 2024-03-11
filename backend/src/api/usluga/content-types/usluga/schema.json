@@ -15,14 +15,6 @@
     "name": {
       "type": "string"
     },
-    "img": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "price": {
       "type": "integer"
     },
@@ -37,15 +29,6 @@
       "relation": "oneToMany",
       "target": "api::raspisanie.raspisanie",
       "mappedBy": "usluga"
-    },
-    "kategoriya": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::kategoriya.kategoriya",
-      "inversedBy": "uslugas"
-    },
-    "description": {
-      "type": "text"
     }
   }
 }

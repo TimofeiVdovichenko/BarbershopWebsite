@@ -1,0 +1,55 @@
+.card_reception {
+	background: var(--bg-white);
+	border-radius: 10px;
+	padding: 30px;
+}
+
+.card_reception {
+	margin-bottom: 20px;
+	width: 980px;
+}
+
+.reception {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 36px;
+	gap: 10px;
+}
+
+.reception h5 {
+	width: 100%;
+	text-align: center;
+}
+
+.reception_input {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 17px;
+	margin-bottom: 25px;
+	gap: 10px;
+}
+
+.reception_input input, .reception_input select {
+	width: 100%;
+}
+
+.reception_input input:disabled, .reception_input select:disabled {
+	background-color: #EAEAEA;
+}
+
+.reception_input select {
+	border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+.reception_btn {
+	padding: 11px 15px;
+	background: #449214;
+	color: var(--t-white);
+	border-radius: 10px;
+}
+
+.reception_btn:disabled {
+	background-color: #21470a;
+}

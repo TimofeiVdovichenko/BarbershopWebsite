@@ -77,7 +77,6 @@ export default function Form(props: props) {
 
       send_message(form_data, window.location.href)
       .then(res => {
-        console.log(res); 
         set_show_answer(prev => {
           return(res.status === 200 ? "success" : "error");
         })
