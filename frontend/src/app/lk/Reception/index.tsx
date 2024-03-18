@@ -126,13 +126,15 @@ export default function Reception(props: props) {
 
   const send = () => {
     const send_data = {
-      usluga: Number(request.usluga),
-      klient: Number(request.klient),
-      time: request.time,
-      master: Number(request.master),
-      date: request.date
+      data: {
+        usluga: Number(request.usluga),
+        klient: Number(request.klient),
+        time: request.time,
+        master: Number(request.master),
+        date: request.date
+      }
     }
-
+    
     axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/raspisanies`, JSON.stringify(send_data), {
       headers: {
         "Authorization": "Bearer " + process.env.NEXT_PUBLIC_API_KEY,
@@ -169,7 +171,7 @@ export default function Reception(props: props) {
             {times.map(time => <option key={'time' + time} value={time}>{time.slice(1)}</option>)}
           </select>
         </div>
-        <button className={styles.reception_btn} disabled={!request.date || !request.master || !request.time || !request.usluga}>Записаться</button>
+        <button type="submit" className={styles.reception_btn} disabled={!request.date || !request.master || !request.time || !request.usluga}>Записаться</button>
       </form>
       
     </div>
