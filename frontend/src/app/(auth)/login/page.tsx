@@ -92,10 +92,10 @@ export default function Register() {
 						</form>
 
 						<div className={styles.support}>
-							<a href="http://localhost:3000/register">
+							<a href="/register">
 								<h5 className={styles.reg}>Нет учетной записи?</h5>
 							</a>
-							<a href="http://localhost:3000/register">
+							<a href="/register">
 								<h5 className={styles.reg}>Зарегестрироваться</h5>
 							</a>
 						</div>	
