@@ -10,7 +10,7 @@ type props = {
 }
 
 export default function MasterCard(props: props) {
-	const image_path = `http://127.0.0.1:1337${props.photo.data.attributes.url}`;
+	const image_path = `${process.env.NEXT_PUBLIC_API_URL}${props.photo.data.attributes.url}`;
 
 	return (
 			<div className={styles.cards}>
