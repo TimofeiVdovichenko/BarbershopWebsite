@@ -7,7 +7,7 @@ export default function Footer() {
 	return (
 		<footer className={styles.footer_wrapper}>
 			<Container className={styles.footer}>
-				<a href="http://localhost:3000/main" className={styles.logo}>
+				<a href="/main" className={styles.logo}>
 					<Image src={logo} alt="logo" width={100} height={100} />
 					<h5 className={styles.name}>Лысый Bebrik</h5>
 				</a>
