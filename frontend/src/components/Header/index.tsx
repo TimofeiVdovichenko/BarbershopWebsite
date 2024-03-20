@@ -27,9 +27,6 @@ export default function Header() {
 					<a href="/masters">
 						<h5 className={styles.masters}>Наши мастера</h5>
 					</a>
-					<a href="">
-						<h5 className={styles.service}>Услуги</h5>
-					</a>
 					{
 						pathname == '/lk' ?
 						<a onClick={exit}>
