@@ -5,21 +5,21 @@
 }
 
 .primary {
-    background-color: var(--bg-blue);
+    background-color: var(--bg-green);
     color: var(--t-white);
 }
 
 .primary:hover {
-    background-color: var(--c-accent-blue2);
+    background-color: var(--c-accent-green);
 }
 
 .primary:active {
-    background-color: var(--c-accent-blue3);
+    background-color: var(--c-accent-green2);
 }
 
 .primary:focus {
-    background-color: var(--c-accent-blue3);
-    outline: 2px solid var(--c-accent-blue3);
+    background-color: var(--c-accent-green2);
+    outline: 2px solid var(--c-accent-green);
     outline-offset: 1px;
 }
 

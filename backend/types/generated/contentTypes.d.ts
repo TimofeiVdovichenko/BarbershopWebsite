@@ -897,6 +897,36 @@ export interface ApiMasterMaster extends Schema.CollectionType {
   };
 }
 
+export interface ApiPricePrice extends Schema.SingleType {
+  collectionName: 'prices';
+  info: {
+    singularName: 'price';
+    pluralName: 'prices';
+    displayName: 'price';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    price: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::price.price',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::price.price',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiRaspisanieRaspisanie extends Schema.CollectionType {
   collectionName: 'raspisanies';
   info: {
@@ -1022,6 +1052,7 @@ declare module '@strapi/types' {
       'api::klient.klient': ApiKlientKlient;
       'api::kompaniya.kompaniya': ApiKompaniyaKompaniya;
       'api::master.master': ApiMasterMaster;
+      'api::price.price': ApiPricePrice;
       'api::raspisanie.raspisanie': ApiRaspisanieRaspisanie;
       'api::usluga.usluga': ApiUslugaUsluga;
     }

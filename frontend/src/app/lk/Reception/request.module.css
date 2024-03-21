@@ -48,8 +48,9 @@
 	background: #449214;
 	color: var(--t-white);
 	border-radius: 10px;
+	transition: color .2s ease-in-out;
 }
 
 .reception_btn:disabled {
-	background-color: #21470a;
+	background-color: rgb(55, 55, 55);
 }

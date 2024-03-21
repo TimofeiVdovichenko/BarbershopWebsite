@@ -5,9 +5,18 @@ import ballon from "./ballon.png"
 import cream from "./cream.png"
 import tools from "./tools.png"
 import mustache from "./mustache.png"
+import axios from "axios";
+import Button from "@/components/std/Button";
 
 
-export default function Home() {
+export default async function Home() {
+
+  const config = {
+		headers: { "Authorization": "Bearer " + process.env.NEXT_PUBLIC_API_KEY}
+	}
+
+  const price = (await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/price?populate=deep`, config)).data.data.attributes.price.data.attributes.url;
+
   return (
     <main>
       <div className={styles.main}>
@@ -30,7 +39,7 @@ export default function Home() {
                 Мы - барбершопы, свободные от предрассудков.
                 Это то место, где вы мы можете отдохнуть от динамики и условностей.
                 У нас Вы гарантировано получите высокий сервис за отличную цену. </h5>
-              <a href="http://localhost:3000/login">
+              <a href="/login">
               <button className={styles.record}>
                 <h5>Запишись сейчас</h5>
               </button>
@@ -112,7 +121,7 @@ export default function Home() {
                 <h3>Усы</h3>
                 <h5 className={styles.other}>Резка и скульптура</h5>
               </div>
-              <a href="http://localhost:3000/login">
+              <a href="/login">
                 <button className={styles.record_reception}>
                   <h5>Записаться на прием</h5>
                 </button>
@@ -198,6 +207,7 @@ export default function Home() {
             </div>
           </div>
           
+          <a href={`${process.env.NEXT_PUBLIC_API_URL}${price}`} download><button className={styles.record_reception}>Скачать Прейскурант</button></a>
         </Container>
       </div>
     </main>
